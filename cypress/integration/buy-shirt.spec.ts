@@ -1,24 +1,33 @@
+import { AddresStepPage, BankPaymentPage, MenuContentPage, OrderSummaryPage, PaymentStepPage, ProductAddedModalPage, ProductListPage, ShippingStepPage, SignInStepPage, SummaryStepPage } from "../page/index";
+
+const menuContentPage = new MenuContentPage();
+const productListPage = new ProductListPage();
+const productAddedModalPage = new ProductAddedModalPage();
+const summaryStepPage = new SummaryStepPage();
+const signInStepPage = new SignInStepPage();
+const addressStepPage = new AddresStepPage();
+const shippingStepPage = new ShippingStepPage();
+const paymentStepPage = new PaymentStepPage();
+const bankPaymentPage = new BankPaymentPage();
+const orderSumaryStepPage = new OrderSummaryPage();
+
 describe("Buy a t-shirt", () => {
     it("then the t-shirt should be bought", () => {
-        cy.visit("http://automationpractice.com/")
-        cy.visit("http://automationpractice.com/")
-        cy.get("#block_top_menu > ul > li:nth-child(3) > a").click()
-        cy.get("#center_column a.button.ajax_add_to_cart_button.btn.btn-default").click()
-        cy.get("[style*=\"display: block;\"] .button-container > a").click()
-        cy.get(".cart_navigation span").click()
+        menuContentPage.visitMenuContentPage()
+        menuContentPage.goToTShirtMenu()
+        productListPage.addShirtToCart();
+        productAddedModalPage.proccedToCheckout();
+        summaryStepPage.confirmAndCheckout();
 
-        cy.get("#email").type("aperdomobo@gmail.com")
-        cy.get("#passwd").type("WorkshopProtractor")
-        cy.get("#SubmitLogin").click();
+        signInStepPage.signIn("aperdomobo@gmail.com", "WorkshopProtractor");
 
-        cy.get("#center_column > form > p > button > span").click();
-        cy.get("#cgv").click();
-        cy.get("#form > p > button > span").click();
+        addressStepPage.goToShippingStep();
+        shippingStepPage.acceptTermsOfService()
+        shippingStepPage.goToPaymentMenu();
 
-        cy.get("#HOOK_PAYMENT > div:nth-child(1) > div > p > a").click();
-        cy.get("#cart_navigation > button > span").click();
+        paymentStepPage.payByBankwire();
+        bankPaymentPage.confirmOrder();
 
-        cy.get("#center_column > div > p > strong")
-      .should("have.text", "Your order on My Store is complete.")
+        orderSumaryStepPage.validateTitle()
     });
 });
