@@ -2,7 +2,7 @@ class SummaryStepPage {
   private proccedCheckoutButton: string;
 
   constructor () {
-    this.proccedCheckoutButton = '.cart_navigation span';
+    this.proccedCheckoutButton = '#center_column [title="Proceed to checkout"]';
   }
 
   public confirmAndCheckout() {

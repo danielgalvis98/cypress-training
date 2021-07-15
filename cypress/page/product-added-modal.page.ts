@@ -2,7 +2,7 @@ class ProductAddedModalPage {
   private proccedCheckoutButton: string;
 
   constructor () {
-    this.proccedCheckoutButton = '[style*="display: block;"] .button-container > a';
+    this.proccedCheckoutButton = 'a[title="Proceed to checkout"]';
   }
 
   public proccedToCheckout(){
