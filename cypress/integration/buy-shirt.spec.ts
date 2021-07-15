@@ -15,7 +15,7 @@ describe("Buy a t-shirt", () => {
     it("then the t-shirt should be bought", () => {
         menuContentPage.visitMenuContentPage()
         menuContentPage.goToTShirtMenu()
-        productListPage.addShirtToCart();
+        productListPage.addShirtToCart('Faded Short Sleeve');
         productAddedModalPage.proccedToCheckout();
         summaryStepPage.confirmAndCheckout();
 
