@@ -3,8 +3,8 @@ class PaymentStepPage {
   private payByCheckOption: string;
 
   constructor () {
-    this.payByBankWireOption = '#HOOK_PAYMENT > div:nth-child(1) > div > p > a';
-    this.payByCheckOption = '#HOOK_PAYMENT > div:nth-child(2) > div > p > a';
+    this.payByBankWireOption = '#HOOK_PAYMENT a.bankwire';
+    this.payByCheckOption = '#HOOK_PAYMENT a.cheque';
   }
 
   public payByBankwire(){

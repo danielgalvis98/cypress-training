@@ -6,7 +6,7 @@ class SignInStepPage {
   constructor () {
     this.emailField = '#email';
     this.passwordField = '#passwd';
-    this.signInButton = '#SubmitLogin > span';
+    this.signInButton = '#SubmitLogin';
   }
 
   private fillCredentials(email: string, password: string) {

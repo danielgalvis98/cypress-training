@@ -2,7 +2,7 @@ class OrderSummaryPage {
   private orderConfirmationText: string;
 
   constructor () {
-    this.orderConfirmationText = '#center_column > div > p > strong';
+    this.orderConfirmationText = 'p.cheque-indent > strong';
   }
 
   public validateTitle(){
