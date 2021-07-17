@@ -12,3 +12,4 @@ export { DressesListPage } from './dresses-list.page';
 export { QaFormStepPage } from './qa-form-step.page';
 export { FormValidationPage } from './form-validation.page';
 export { UploadPage } from './upload.page';
+export { DownloadPage } from './download.page';
